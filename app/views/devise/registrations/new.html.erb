@@ -1,29 +1,43 @@
-<h2>Sign up</h2>
+  <a class="hiddenanchor" id="toregister"></a>
+  <div id="wrapper">   
+  <section class="login_content"> 
+    
+      
+      <h1>Create Account</h1>
+      
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+       <%= f.submit 'Sign up', class: 'btn btn-success submit', style: "margin-left: auto;" %>
+    <% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="clearfix"></div>
+      <div class="separator">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <p class="change_link">Already a member ?
+          <%= link_to "Log in", new_user_session_path %> 
+        </p>
+        
+        <div class="clearfix"></div>
+        <br />
+        <div>
+          <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+          <p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+        </div>
+      </div>
+      
+    
+    </section>
+  </div
