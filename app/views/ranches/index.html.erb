@@ -1,4 +1,7 @@
-<!-- page content -->
+
+
+
+
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
@@ -30,11 +33,32 @@
             </ul>
             <div class="clearfix"></div>
           </div>
-          <button>Translate</button>
+
+          <%= link_to 'New Ranch', new_ranch_path %>
+          <h1>Listing Ranches</h1>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @ranches.each do |ranch| %>
+                <tr>
+                  <td><%= ranch.name %></td>
+                  <td><%= link_to 'Show', ranch %></td>
+                  <td><%= link_to 'Edit', edit_ranch_path(ranch) %></td>
+                  <td><%= link_to 'Destroy', ranch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 </div>
 <!-- /page content -->
-

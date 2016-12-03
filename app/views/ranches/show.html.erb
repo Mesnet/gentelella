@@ -30,8 +30,21 @@
             </ul>
             <div class="clearfix"></div>
           </div>
-          <button>Translate</button>
-        </div>
+          <p>
+            <strong>Name:</strong>
+            <%= @ranch.name %>
+          </p>
+
+          <div id="tasks_wrapper">
+            <%= render @ranch.tasks %>
+            <div id="form">
+              <%= render "tasks/form" %>
+            </div>
+          </div>
+
+          <%= link_to 'Edit', edit_ranch_path(@ranch) %> |
+          <%= link_to 'Back', ranches_path %>
+
       </div>
     </div>
   </div>
