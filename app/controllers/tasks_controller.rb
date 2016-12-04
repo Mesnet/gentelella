@@ -23,6 +23,11 @@ class TasksController < ApplicationController
     redirect_to @ranch, notice: "Task done"
   end 
 
+  def undone
+    @task.update(done: false)
+    redirect_to @ranch, notice: "Task undone"
+  end 
+
 private
 
   def task_params

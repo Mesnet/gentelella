@@ -1,3 +1,12 @@
 <p><%= task.content %></p>
 <%= link_to 'Destroy', ranch_task_path(@ranch, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Done', done_ranch_task_path(@ranch, task.id), method: :patch %>
+<%- if task.done == false %>
+  <%= link_to done_ranch_task_path(@ranch, task.id), method: :patch do %>
+    <i class="fa fa-square-o"></i>
+  <% end %>
+
+<%else%>
+  <%= link_to undone_ranch_task_path(@ranch, task.id), method: :patch do %>
+    <i class="fa fa-check-square-o"></i>
+  <% end %>
+<%end%>
