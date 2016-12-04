@@ -1,12 +1,26 @@
-<p><%= task.content %></p>
-<%= link_to 'Destroy', ranch_task_path(@ranch, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%- if task.done == false %>
-  <%= link_to done_ranch_task_path(@ranch, task.id), method: :patch do %>
-    <i class="fa fa-square-o"></i>
-  <% end %>
-
-<%else%>
-  <%= link_to undone_ranch_task_path(@ranch, task.id), method: :patch do %>
-    <i class="fa fa-check-square-o"></i>
-  <% end %>
-<%end%>
+<div class="row-clearfix">
+  <%- if task.done == false %>
+    <div class="done">
+      <%= link_to done_ranch_task_path(@ranch, task.id), method: :patch do %>
+        <i class="fa fa-square-o"></i>
+      <% end %>
+    </div>
+    <div class="task">
+      <p><%=task.content%></p>
+    </div>
+  <%else%>
+    <div class="done">
+      <%= link_to undone_ranch_task_path(@ranch, task.id), method: :patch do %>
+        <i class="fa fa-check-square-o"></i>
+      <% end %>
+    </div>
+    <div class="trash">
+      <%= link_to ranch_task_path(@ranch, task.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </div>
+    <div class="task">
+      <p style="opacity: 0.4;"><strike><%=task.content%></strike></p>
+    </div>
+  <%end%>
+</div>

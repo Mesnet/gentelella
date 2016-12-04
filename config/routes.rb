@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-   root 'plainpage#index'
+   root 'ranches#index'
 
 end

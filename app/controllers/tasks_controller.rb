@@ -4,7 +4,12 @@ class TasksController < ApplicationController
 
   def create 
     @task = @ranch.tasks.create(task_params)
-    @task.update(done: false)
+    if @task.save
+      @task.update(done: false)
+      flash[:success] = "The task was created "
+    else 
+      flash[:success] = "The task was not created "
+    end
     redirect_to @ranch
   end 
 
@@ -20,12 +25,14 @@ class TasksController < ApplicationController
   def done
     @task.update(done: true)
     @task.update(completed_at: Time.now)
-    redirect_to @ranch, notice: "Task done"
+    flash[:success] = "The task was executed "
+    redirect_to @ranch
   end 
 
   def undone
     @task.update(done: false)
-    redirect_to @ranch, notice: "Task undone"
+    flash[:success] = "The task was unexecuted "
+    redirect_to @ranch
   end 
 
 private
