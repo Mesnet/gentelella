@@ -2,20 +2,23 @@
  <div class="row-clearfix">
 
     <table class="show_task_table">
-        <tbody >
           <% @tasks.each do |task| %>
             <%- if task.done == false %>
               <tr>
                 <td>
-                  <div class="done">
-                    <%= link_to done_ranch_task_path(@ranch, task.id), method: :patch do %>
-                      <i class="fa fa-square-o"></i>
-                    <% end %>
+                  <div class="tbox">
+                    <div class="done">
+                      <%= link_to done_ranch_task_path(@ranch, task.id), method: :patch do %>
+                        <i class="fa fa-square-o"></i>
+                      <% end %>
+                    </div>
                   </div>
                 </td>
                 <td>
-                  <div class="task">
-                    <p><%=task.content%></p>
+                  <div class="tline">
+                    <div class="task">
+                      <p><%=task.content%></p>
+                    </div>
                   </div>
                 </td>
                 <td>
@@ -47,4 +50,6 @@
           <%end%>    
         </tbody>
       </table>
+
+
 

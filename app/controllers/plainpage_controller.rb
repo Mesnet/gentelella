@@ -7,5 +7,4 @@ class PlainpageController < ApplicationController
     # flash[:warn ] = "Israel don't quite like warnings"
     #flash[:danger ] = "Naomi let the dog out!"
   end
-
 end

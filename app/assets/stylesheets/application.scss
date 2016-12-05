@@ -103,6 +103,14 @@ html {
       }
     }
   }
+
+  .test{
+  background-color: blue;
+  margin: 10px;
+    .tline{
+    margin: 10px;
+    }
+  }
   
   #form {
     margin-top: 2em;
@@ -137,10 +145,17 @@ html {
 }
 
 #show_task_table {
-  .td, th {
-  border: 1px solid #999;
-  padding: 0.5rem;
-}
+  
+  
+   .tline{
+    margin: 10px;
+    }
+    .tbox{
+    background-color: blue;
+    padding: 5px;
+    margin: 10px;
+    
+  }
 
 }
 
