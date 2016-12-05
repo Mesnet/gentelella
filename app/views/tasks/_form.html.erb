@@ -1,4 +1,6 @@
+<div class="row-clearfix">
 <%= form_for([@ranch, @ranch.tasks.build]) do |f| %>
-  <%= f.text_field :content, placeholder: "New task" %>
-  <%= f.submit %>
+  <%= f.text_field :content, placeholder: "New task", style: "border: solid 0.1px" %>
+  <%= f.submit%>
 <% end %>
+</div>

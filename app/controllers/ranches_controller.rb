@@ -10,6 +10,7 @@ class RanchesController < ApplicationController
   # GET /ranches/1
   # GET /ranches/1.json
   def show
+    @tasks = @ranch.tasks.all
   end
 
   # GET /ranches/new

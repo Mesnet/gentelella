@@ -1,61 +1,26 @@
 
 
-
-
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
 
-      <div class="title_left">
-        <h3>Plain Page</h3>
-      </div>
-      <div class="title_right">
-        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
+    <div class="row" style="width: auto; height: 100%;">
+      <div class="col-md-12 col-sm-12 col-xs-12" >
+        <div class="x_panel" style="text-align: center; height: auto; width: 50%; border-radius: 5px">
+          
+          <h1>Your Ranches</h1>
 
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel" style="height:700px; border-radius: 10px">
-          <div class="x_title">
-            <h2>Today </h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
+          <% @ranches.each do |ranch| %>
+            <div class="index_row clearfix">
+              <h2>
+                <%= link_to ranch.name, ranch %>
+              </h2>
+            </div>
+          <% end %>
+          <%= link_to 'New Ranch', new_ranch_path, class: "btn btn-success", style: "margin: 10px;"  %>
           </div>
 
-          <%= link_to 'New Ranch', new_ranch_path %>
-          <h1>Listing Ranches</h1>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @ranches.each do |ranch| %>
-                <tr>
-                  <td><%= ranch.name %></td>
-                  <td><%= link_to 'Show', ranch %></td>
-                  <td><%= link_to 'Edit', edit_ranch_path(ranch) %></td>
-                  <td><%= link_to 'Destroy', ranch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+         
         </div>
       </div>
     </div>
