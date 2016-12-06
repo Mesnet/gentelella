@@ -18,9 +18,26 @@
 
                 <td>
                   <div class="tline">
-                    <p><%=task.content%></p>
+                    <p style="font-size: 20px"><%=task.content%></p>
                   </div>
                 </td>
+
+                <td>
+                  <%- if task.star == false %>
+                    <div class="star">
+                      <%= link_to star_ranch_task_path(@ranch, task.id), method: :patch do %>
+                      <i class="fa fa-star-o" style="font-size:20px;"></i>
+                    <% end %>
+                    </div>
+                  <%else%>
+                    <div class="star">
+                      <%= link_to unstar_ranch_task_path(@ranch, task.id), method: :patch do %>
+                      <i class="fa fa-star" style="font-size:20px;"></i>
+                    <% end %>
+                    </div>
+                  <%end%>
+                </td>
+
 
               </tr>
             <%else%>
@@ -36,17 +53,25 @@
 
                 <td>
                   <div class="tline">
-                    <p style="opacity: 0.6;"><%=task.content%></p>
+                    <p style="opacity: 0.6; font-size: 20px"><%=task.content%></p>
                   </div>
                 </td>
 
-                <td>
-                  <div class="fav">
-                    <%= link_to ranch_task_path(@ranch, task.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                      <i class="fa fa-times" style="font-size:20px;"></i>
+                   <td>
+                  <%- if task.star == false %>
+                    <div class="star">
+                      <%= link_to star_ranch_task_path(@ranch, task.id), method: :patch do %>
+                      <i class="fa fa-star-o" style="font-size:20px;"></i>
                     <% end %>
-                  </div>
-                </td>
+                    </div>
+                  <%else%>
+                    <div class="star">
+                      <%= link_to unstar_ranch_task_path(@ranch, task.id), method: :patch do %>
+                      <i class="fa fa-star" style="font-size:20px;"></i>
+                    <% end %>
+                    </div>
+                  <%end%>
+                
 
                 <td>
                   <div class="trash">

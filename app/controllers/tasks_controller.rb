@@ -33,6 +33,18 @@ class TasksController < ApplicationController
     @task.update(done: false)
     flash[:success] = "The task was unexecuted "
     redirect_to @ranch
+  end
+
+  def star
+    @task.update(star: true)
+    flash[:success] = "The task was marked as important"
+    redirect_to @ranch
+  end 
+
+  def unstar
+    @task.update(star: false)
+    flash[:success] = "The task was unmarked as important "
+    redirect_to @ranch
   end 
 
 private

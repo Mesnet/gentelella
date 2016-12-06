@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       member do 
         patch :done
         patch :undone
+        patch :star
+        patch :unstar
       end
     end 
   end
