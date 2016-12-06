@@ -145,16 +145,21 @@ html {
 }
 
 #show_task_table {
-  
-  
-   .tline{
-    margin: 10px;
-    }
-    .tbox{
-    background-color: blue;
-    padding: 5px;
-    margin: 10px;
-    
+  display: block-inline;
+  .bubble_task{
+  border: solid 0.1px;
+  border-radius: 4px;
+  width: 800px;
+  float: left;
+  margin: 5px;
+  }
+ .tline{
+  margin: 10px;
+  width: 600px;
+  }
+  .tbox{
+  padding: 5px;
+  margin: 10px;
   }
 
 }
