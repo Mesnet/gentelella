@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206222452) do
+ActiveRecord::Schema.define(version: 20161206233541) do
 
   create_table "ranches", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20161206222452) do
     t.date     "date"
     t.boolean  "star",         default: false
     t.integer  "assigned_to"
+    t.date     "dated_on"
   end
 
   add_index "tasks", ["ranch_id"], name: "index_tasks_on_ranch_id"

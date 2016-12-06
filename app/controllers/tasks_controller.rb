@@ -50,7 +50,7 @@ class TasksController < ApplicationController
 private
 
   def task_params
-    params[:task].permit(:content)
+    params[:task].permit(:content, :dated_on, :assigned_to)
   end
 
   def set_ranch 

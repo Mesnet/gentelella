@@ -1,6 +1,8 @@
 <div class="row-clearfix">
 <%= form_for([@ranch, @ranch.tasks.build]) do |f| %>
-  <%= f.text_field :content, placeholder: "New task", style: "border: solid 0.1px" %>
+  <%= f.text_field :content, placeholder: "New task", style: "width: 600px; border: solid 0.1px" %>
+
+  <%= datepicker_input(:dated_on), style: "width: 100px; border: solid 0.1px"  %>
   <%= f.submit%>
 <% end %>
 </div>
