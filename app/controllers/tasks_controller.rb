@@ -25,25 +25,21 @@ class TasksController < ApplicationController
   def done
     @task.update(done: true)
     @task.update(completed_at: Time.now)
-    flash[:success] = "The task was executed "
     redirect_to @ranch
   end 
 
   def undone
     @task.update(done: false)
-    flash[:success] = "The task was unexecuted "
     redirect_to @ranch
   end
 
   def star
     @task.update(star: true)
-    flash[:success] = "The task was marked as important"
     redirect_to @ranch
   end 
 
   def unstar
     @task.update(star: false)
-    flash[:success] = "The task was unmarked as important "
     redirect_to @ranch
   end 
 
