@@ -15,6 +15,7 @@
 
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-datepicker
 
 //= require js/flot/jquery.flot.js
 //= require js/flot/jquery.flot.pie.js

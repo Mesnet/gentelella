@@ -17,6 +17,7 @@ gem "font-awesome-rails"
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
+gem 'bootstrap-datepicker-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
