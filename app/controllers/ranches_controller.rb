@@ -3,8 +3,10 @@ class RanchesController < ApplicationController
 
   # GET /ranches
   # GET /ranches.json
+
+
   def index
-    @ranches = Ranch.all
+    @ranches = current_user.ranches
   end
 
   # GET /ranches/1
@@ -26,7 +28,7 @@ class RanchesController < ApplicationController
   # POST /ranches.json
   def create
     @ranch = Ranch.new(ranch_params)
-
+    @ranch.update(user_id: current_user.id)
     respond_to do |format|
       if @ranch.save
         format.html { redirect_to @ranch, notice: 'Ranch was successfully created.' }
@@ -70,6 +72,6 @@ class RanchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ranch_params
-      params.require(:ranch).permit(:name)
+      params.require(:ranch).permit(:name, :user_id)
     end
 end

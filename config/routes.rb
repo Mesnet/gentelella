@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   resources :ranches do 
     resources :tasks do
       member do 
@@ -11,9 +13,9 @@ Rails.application.routes.draw do
   end
 
 
-
+  resources :staffs
   devise_for :users
   
-   root 'plainpage#index'
+  root 'plainpage#index'
 
 end

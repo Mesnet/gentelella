@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  belongs_to :ranch 
+  has_many :ranches
+  has_many :staffs
 
 
 end

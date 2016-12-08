@@ -46,7 +46,7 @@
                 <td>
                   <div class="tbox">
                     <%= link_to undone_ranch_task_path(@ranch, task.id), method: :patch do %>
-                      <i class="fa fa-check-square-o" style="font-size:20px;"></i>
+                      <i class="fa fa-check-square-o" style="font-size:20px; opacity: 0.6;"></i>
                     <% end %>
                   </div>
                 </td>
@@ -61,13 +61,13 @@
                   <%- if task.star == false %>
                     <div class="star">
                       <%= link_to star_ranch_task_path(@ranch, task.id), method: :patch do %>
-                      <i class="fa fa-star-o" style="font-size:20px;"></i>
+                      <i class="fa fa-star-o" style="font-size:20px; opacity: 0.6;"></i>
                     <% end %>
                     </div>
                   <%else%>
                     <div class="star">
                       <%= link_to unstar_ranch_task_path(@ranch, task.id), method: :patch do %>
-                      <i class="fa fa-star" style="font-size:20px;"></i>
+                      <i class="fa fa-star" style="font-size:20px; opacity: 0.6;"></i>
                     <% end %>
                     </div>
                   <%end%>
@@ -76,7 +76,7 @@
                 <td>
                   <div class="trash">
                     <%= link_to ranch_task_path(@ranch, task.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                      <i class="fa fa-times" style="font-size:20px;"></i>
+                      <i class="fa fa-times" style="font-size:20px; opacity: 0.6;"></i>
                     <% end %>
                   </div>
                 </td>

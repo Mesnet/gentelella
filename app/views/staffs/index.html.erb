@@ -1,0 +1,29 @@
+
+
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+
+    <div class="row" style="width: auto; height: 100%;">
+      <div class="col-md-12 col-sm-12 col-xs-12" >
+        <div class="x_panel" style="text-align: center; height: auto; width: 50%; border-radius: 5px">
+          
+          <h1>Your Staffs</h1>
+
+          <% @staffs.each do |staff| %>
+            <div class="index_row clearfix">
+              <h2>
+                <%= link_to staff.name, staff %>
+              </h2>
+            </div>
+          <% end %>
+          <%= link_to 'New Staff', new_staff_path, class: "btn btn-success", style: "margin: 10px;"  %>
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
