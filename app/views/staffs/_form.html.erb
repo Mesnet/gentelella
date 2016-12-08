@@ -1,21 +1,26 @@
 <%= form_for(@staff) do |f| %>
-  <% if @staff.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this staff from being saved:</h2>
-
-      <ul>
-      <% @staff.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <div class="field">
+    <%= f.label :ranches %><br>
+    <%= select_tag("ranches[]", options_for_select(@fuctions,
+      {:multiple=>true, :id => "ranches"}) %>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $("#functions").multiselect();
+    });
+  </script>
+
+  <%= javascript_include_tag "jquery.multiselect.min" %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

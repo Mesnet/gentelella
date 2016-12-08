@@ -16,6 +16,7 @@ class StaffsController < ApplicationController
   # GET /ranches/new
   def new
     @staff = Staff.new
+    @functions = current_user.ranches
   end
 
   # GET /ranches/1/edit
@@ -24,19 +25,25 @@ class StaffsController < ApplicationController
 
   # POST /ranches
   # POST /ranches.json
+
+
   def create
     @staff = Staff.new(staff_params)
     @staff.update(user_id: current_user.id)
     respond_to do |format|
-      if @staff.save
-        format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
-        format.json { render :show, status: :created, location: @staff }
-      else
-        format.html { render :new }
-        format.json { render json: @staff.errors, status: :unprocessable_entity }
-      end
-    end
+    @staff.functions << Ranch.find(params[:id]) unless params[:ranch].nil? 
+     if @user.save
+      format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
+      format.json { render :show, status: :created, location: @staff }
+    else
+      format.html { render :new }
+      format.json { render json: @staff.errors, status: :unprocessable_entity }
+    end 
   end
+end
+
+
+
 
   # PATCH/PUT /ranches/1
   # PATCH/PUT /ranches/1.json
