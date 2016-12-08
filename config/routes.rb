@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :staffs
   devise_for :users
+
+  post '/' => 'users#create', :as => 'user'
   
   root 'plainpage#index'
 
