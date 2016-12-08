@@ -16,6 +16,8 @@ class StaffsController < ApplicationController
   # GET /ranches/new
   def new
     @staff = Staff.new
+    @all_ranch = current_user.ranches
+    @staff_ranch = @staff.ranchstaffs.build
   end
 
   # GET /ranches/1/edit
@@ -26,6 +28,7 @@ class StaffsController < ApplicationController
   # POST /ranches.json
   def create
     @staff = Staff.new(staff_params)
+
     @staff.update(user_id: current_user.id)
     respond_to do |format|
       if @staff.save

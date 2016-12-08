@@ -1,5 +1,8 @@
 class Ranch < ActiveRecord::Base
   belongs_to :users
+  
+  has_many :staffs, :through => :ranchstaffs
+
   has_many :tasks 
 
 

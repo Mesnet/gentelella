@@ -1,20 +1,19 @@
 <%= form_for(@staff) do |f| %>
-  <% if @staff.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this staff from being saved:</h2>
 
-      <ul>
-      <% @staff.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+    <%= fields_for(@staff_ranch) do |x| %>
+    <div class="field">
+  
+      <%= x.collection_select(:ranch_id, @all_ranch, :id, :name, { }, {:multiple => true}) %>
+    </div>
+  <%end%>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
